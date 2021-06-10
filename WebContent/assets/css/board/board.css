@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+.btn1{background:#FF3C28; border:#FF3C28 solid 1px; color:#fff !important; padding:5px 20px;}
+.btn2{background:#FF3C28; border:#FF3C28 solid 1px; color:#fff !important; font-weight:100; width:100px; box-shadow:none}
+.btn3{background:#fff; border:#FF3C28 solid 1px; color:#FF3C28 !important; font-weight:100; width:100px; box-shadow:none}
+.qna .content{margin-bottom:60px;}
+.qna table{border-top:#000 solid 1px; margin-bottom:80px !important}
+.qna tr{border-bottom:#ddd solid 1px}
+#faq{
+	position:fixed;
+	bottom:100px;
+	right:80px;
+	background:#FF3C28;
+	z-index:10;
+	padding:10px 30px;
+	border-radius:30px;
+}
+#faq a{
+	color:#fff;
+	border:none;
+}
+.faq tr{ border-top:#999 solid 1px !important; display:block;max-height:80px; overflow:hidden; cursor:pointer; transition:max-height .5s}
+.faq td{background:#fff; padding: 30px 0; display:block }
+.faq .hideTr{background:#f0f0f0; }
+.faq .hideTr>div{ margin: 40px 30px;}
+
+@media(max-width:768px){
+	.qna td{font-size:13px}
+}
+.review {width:100%; margin-top:50px}
+.review table{border-top:#000 solid 1px; margin-bottom:80px !important}
+.review tr{border-bottom:#ddd solid 1px}
+.review .img{
+	width:50px;
+	height:40px;
+	position:relative;
+	object-fit:cover;
+	vertical-align:middle
+}
+
+.review tbody td{
+	height:60px;
+}
+.review .major{text-align:center}
+.review .major h2{position:relative}
+.review .major h2:after{
+	border-bottom: solid 1px;
+    bottom: 0;
+    content: '';
+    display: inline-block;
+    left: 0;
+    position: absolute;
+    width: 3rem;
+    left:50%; 
+    transform:translateX(-50%)
+}
+.review .btn1{position:relative; margin-left:50%; left:-43px}
+
+.writeWrap > div label{width:80px;}
+.writeWrap > div input{width:calc(100% - 80px)}
+.row.gtr-uniform > * {
+    display: flex;
+}
+
+#category{max-width:768px;}
+label[for="category"]{width:80px !important}
+.messageWrap{margin-top:10px !important; display:block !important}
+.messageWrap > textarea{width:100% !important}
+
+
+.boardView .table-wrapper{
+	overflow:visible;
+	height:100%;
+}
+.boardView .titleWrap{
+	border-top:#eee solid 1px; 
+	border-bottom:#eee solid 1px;
+	background:#eaeaea; 
+	padding: 5px 10px !important;
+}
+.boardView table th{
+	color:#999;
+	padding: 5px 10px;
+	font-weight:100;
+}
+.boardView table td{
+	border-bottom:#e6e6e6 solid 2px;
+}
+.boardView .viewWrap{
+	min-height:300px; 
+	padding:10px 10px; 
+}
+.boardView .btnWrap{height:80px !important;}
+.boardView .btn2, .boardView .btn3{padding: 5px 20px; font-size:12px !important; height:40px;}
+.boardView .btn3{border:#FF3C28 solid 1px !important}
+#contentslist:hover{
+	transition: 1s;
+	background-color: #c0c0c0;
+}

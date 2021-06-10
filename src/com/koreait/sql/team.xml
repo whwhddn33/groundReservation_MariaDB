@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Team">
+	<!-- 팀 생성 -->
+	<insert id="create" parameterType="teamBean">
+		INSERT INTO TBL_TEAM(TEAMNAME, CAPTAINNAME, TEAMTEL, TEAMLOCAL, TEAMFOUNDYEAR, TEAMLEVEL, STARTAGE, STOPAGE, UNIFORMCOLOR, UNIFORMAWAY, CONTROLLABEL)
+		VALUES(#{teamName},#{captainName},#{teamTel},#{teamLocal},#{teamFoundYear},
+		#{teamLevel},#{startAge},#{stopAge},#{uniformColor},#{uniformAway},#{controlLabel})
+	</insert>
+	<!-- 팀 로고 첨부 -->
+	<insert id="insertFiles" parameterType="fileBean">
+		INSERT INTO TBL_TEAMLOGO VALUES (${teamNo}, #{fileName}, #{fileRealName})
+	</insert>
+	<!-- 현재 팀 번호 -->
+	<select id="teamNoSeq" resultType="_int">
+		SELECT LAST_INSERT_ID()
+	</select>
+	<!-- 팀 이름 중복검사 -->
+	<select id="checkName" parameterType="string" resultType="_int">
+		SELECT COUNT(*) FROM TBL_TEAM WHERE TEAMNAME=#{teamnName}
+	</select>
+	<!-- 팀 상세보기 -->
+	<select id="teamDesc" parameterType="_int" resultType="teamBean">
+		SELECT TEAMNAME, TEAMLOCAL, TEAMLEVEL FROM TBL_TEAM WHERE TEAMNO=${teamNo}
+	</select>
+	<!-- 팀 리스트 -->
+	<select id="teamListAll" parameterType="hashmap" resultType="teamBean">
+		SELECT SUB.TEAMNO, SUB.TEAMNAME, SUB.CAPTAINNAME, SUB.TEAMTEL, SUB.TEAMLOCAL,SUB.TEAMFOUNDYEAR, SUB.TEAMLEVEL,SUB.STARTAGE,SUB.STOPAGE,SUB.UNIFORMCOLOR,SUB.UNIFORMAWAY,SUB.CONTROLLABEL
+FROM (SELECT @rownum:=  @rownum+1 as rownum, a.*
+		FROM TBL_TEAM a,(SELECT @rownum :=0)TMP
+		order BY TEAMNO DESC)SUB
+		where rownum BETWEEN #{startRow} and #{endRow}
+		order by SUB.rownum
+	</select>
+	<select id="teamCnt" resultType="_int">
+		SELECT COUNT(*) FROM TBL_TEAM	
+	</select>
+	<select id="getTeamInfo" parameterType="string" resultType="_int">
+		SELECT TEAMNAME, STARTAGE, ENDAGE, TEAMLOCAL, CONTROLLABEL FROM TBL_TEAM WHERE TEAMNAME=#{teamnName}
+	</select>
+	<!-- 팀 정보수정 -->
+	<update id="teamModify" parameterType="teamBean">
+	</update>
+	<insert id="insertTeamMember">
+		INSERT INTO TBL_TEAMLIST(TEAMNO, USERNAME, NICKNAME, USERHEIGHT, USERWEIGHT, USEFOOT, MAINPOSITION, MINORPOSITION, USERTEL)
+		VALUES(${teamNo} ,#{username} ,#{nickname} ,#{userheight} ,#{userweight} ,#{usefoot} ,#{mainposition} ,#{minorposition} ,#{usertel})
+	</insert>
+	
+	<select id="getTeamMember" parameterType="String" resultType="teamlistBean">
+		SELECT * FROM TBL_TEAMLIST WHERE TEAMNO = #{teamNo}
+	</select>
+</mapper>

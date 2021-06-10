@@ -1,0 +1,198 @@
+@charset "UTF-8";
+	.teamlist{
+		margin:0 auto; 
+	}	
+
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"],
+	button,
+/* 	.button {
+		background-color: #444444;
+		color: #fbfbfb !important;
+	} */
+
+		input[type="submit"]:hover,
+		input[type="reset"]:hover,
+		input[type="button"]:hover,
+		button:hover,
+		.button:hover {
+			background-color: #f6f6f6;
+		}
+
+		input[type="submit"]:active,
+		input[type="reset"]:active,
+		input[type="button"]:active,
+		button:active,
+		.button:active {
+			background-color: #e2e2e2;
+		}
+
+		input[type="submit"].primary,
+		input[type="reset"].primary,
+		input[type="button"].primary,
+		button.primary,
+		.button.primary {
+			box-shadow: none;
+			background-color: #444;
+			color: #fff !important;
+		}
+
+			input[type="submit"].primary:hover,
+			input[type="reset"].primary:hover,
+			input[type="button"].primary:hover,
+			button.primary:hover,
+			.button.primary:hover {
+				background-color: #515151;
+			}
+
+			input[type="submit"].primary:active,
+			input[type="reset"].primary:active,
+			input[type="button"].primary:active,
+			button.primary:active,
+			.button.primary:active {
+				background-color: #373737;
+			}
+			
+label{
+	padding-top: 10px;
+	width: 100%;
+}
+
+/*팀 가입 폼*/
+.search{
+	width: 100%;
+	/*height: 100%;*/
+	/*position : absolute; 사용x*/
+	/* left:50%; */
+	/*margin-left: -2%;*/
+}
+.searchwrap{
+	width: 50%;
+	height: 100%;
+	justify-content: center;
+ 	/*background-color: coral;   영역 확인용*/
+	margin: 0 auto; 
+	
+}
+			
+/*input 설정*/		
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"], 
+input[type="search"], input[type="url"], select, textarea{
+    border: none;
+    border: solid 1px;
+    background-color: transparent;
+    border-color: #e6e6e6;
+    color: inherit;
+    display: block;
+    outline: 0;
+    padding: 0 1em;
+    text-decoration: none;
+    width: 100%;
+}
+
+ul.search_actions {
+		background-color: #f6f6f6;
+		list-style: none;	
+		vertical-align: middle;
+	}
+			
+/* Table */
+
+	.team-table-wrapper {
+		-webkit-overflow-scrolling: touch;
+		overflow-x: auto;
+	}
+
+	table {
+		margin: 0 0 2em 0;
+		width: 100%;
+	}
+
+		table tbody tr {
+			border: solid 1px;
+			border-left: 0;
+			border-right: 0;
+		}
+
+		table td {
+			padding: 0.75em 0.75em;
+		}
+
+		table th {
+			padding: 0 0.75em 0.75em 0.75em;
+			text-align: center;
+			text-transform: uppercase;
+			font-size: 0.9em;
+			font-family: "Raleway", Helvetica, sans-serif;
+			font-weight: 700;
+		}
+
+		table thead {
+			border-bottom: solid 2px;
+		}
+
+		table tfoot {
+			border-top: solid 2px;
+		}
+
+		table.alt {
+			border-collapse: separate;
+		}
+
+			table.alt tbody tr td {
+				border: solid 1px;
+				border-left-width: 0;
+				border-top-width: 0;
+			}
+
+				table.alt tbody tr td:first-child {
+					border-left-width: 1px;
+				}
+
+			table.alt tbody tr:first-child td {
+				border-top-width: 1px;
+			}
+
+			table.alt thead {
+				border-bottom: 0;
+			}
+
+			table.alt tfoot {
+				border-top: 0;
+			}
+
+	table tbody tr {
+		border :rgba(0, 0, 0, 0);
+		border-color: #e6e6e6;
+		background-color: #ffffff;
+		opacity : 0.8;
+	}
+
+	table th {
+		color: #444444;
+	}
+
+	table thead {
+		border-bottom-color: #e6e6e6;
+	}
+
+	table tfoot {
+		border-top-color: #e6e6e6;
+	}
+
+	table.alt tbody tr td {
+		border-color: #e6e6e6;
+	}
+	
+.wrapper.sidebar > .inner {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: nowrap;
+    justify-content: center !important;
+}

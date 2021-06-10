@@ -1,0 +1,88 @@
+@charset "UTF-8";
+/*가입 전체 영역*/
+.joinwrap{
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+ 	/*background-color: powderblue;   영역 확인용*/ 
+	padding: 30px;
+}
+/*팀 가입 폼*/
+.joinform{
+	width: 50%;
+	height: 100%;
+	justify-content: center;
+ 	/*background-color: coral;   영역 확인용*/
+	margin: 0 auto; 
+	
+}
+.formwrap{
+	width: 100%;
+	/*height: 100%;*/
+	/*position : absolute; 사용x*/
+	/* left:50%; */
+	/*margin-left: -2%;*/
+}
+/*버튼*/
+.actions_div{
+	width: 50%;
+	height: 100%;
+	/*position : absolute;*/
+	/* left:10%;
+	margin-left: -3%; */
+	padding-top: 40px;
+	margin: 0 auto; 
+	right: 2%;
+}
+label{
+	padding-top: 10px;
+	width: 100%;
+}
+/*input 설정*/
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"], 
+input[type="search"], input[type="url"], select, textarea{
+    border: none;
+    border: solid 1px;
+    background-color: transparent;
+    border-color: #e6e6e6;
+    color: inherit;
+    display: block;
+    outline: 0;
+    padding: 0 1em;
+    text-decoration: none;
+    width: 100%;
+}
+/*사이드바*/	
+.joined_team{
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 80px;
+	margin-bottom: 5px;
+	height: 70px;
+	background-color: #333333;
+	cursor:  pointer;
+	padding-left: 25px;
+	line-height: 70px;
+}
+.create_team{
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	height: 70px;
+	background-color: #333333;
+	cursor:  pointer;
+	padding-left: 25px;
+	line-height: 70px;
+}
+.wrapper.sidebar > .inner {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: nowrap;
+    justify-content: center !important;
+}

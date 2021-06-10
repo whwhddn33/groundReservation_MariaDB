@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+.inner {
+       padding-top: 2em;
+      
+}
+
+.container_img{
+   width: 100%;
+   height:450px;
+}
+
+h1:after, h2:after, h3:after, h4:after, h5:after, h6:after {
+   border-bottom: solid 0px;
+    content: '';
+}
+h1, h2, h3, h4, h5, h6 {
+   font-family: "Raleway", Helvetica, sans-serif;
+    font-weight: 700;
+    line-height: 1em;
+    margin: 0;
+    padding-bottom: 0;
+    position: relative;
+    text-transform: uppercase;
+}
+#first{
+   width: 95%;
+   display: flex;
+}
+
+.content{
+   padding: 1em 0 1em 1em ;
+}
+#groundimg{
+	width : 45%;
+	margin : 2.5%;
+	height : 30em;
+	background-size:cover;
+	border-radius: 10px;
+}
+#groundinfo{
+   width : 45%;
+	margin : 2.5%;
+	text-align: center;
+   
+}
+
+#second{   
+   width: 95%;
+   border-radius: 10px;
+   padding: 20px;
+   font-size: 25px;
+   display: flex;
+  
+}
+.last{   
+   width: 95%;
+   display: flex;
+}
+.point{
+   border : 1px solid green;
+   border-radius: 20px;
+   padding: 20px;
+   width: 70%;
+}
+.p_point{
+   border-bottom: 1px solid;
+   font-weight: bold;
+   width: 100%;
+}
+#reservebtn{
+   margin: 1em;
+   text-align: center;
+   
+}
+
+.reservationbtn{
+   font-size: 3em;
+    border-bottom: dotted 0px;
+}
+.calander{
+   width: 45%;
+   border-radius: 10px;
+   margin-left: 2.5%;
+   margin-right: 2.5%;
+
+}
+.reservation{
+   width: 45%;
+   font-size: 0.6em;
+   margin-left: 2.5%;
+   margin-right: 2.5%;
+   border-radius: 10px;
+	text-align: center;
+}
+#reservation > tr >td{
+	padding : 0;
+	border : 1px solid;
+}
+
+.checkedreservation{
+	background-color: #8bffdd;
+}
+/* 켈린더 */
+input[type="submit"], input[type="reset"], input[type="button"], button, .button {
+   box-shadow: 0 0 0 0;
+}
+
+#calendarForm > table > thead.cal_date > tr{
+   height: 10px;
+}
+p {
+   font-size: .7em;
+   margin:0;
+}
+.custom_calendar_table thead.cal_date th button {
+   font-size: 1em !important;
+   padding: 0;
+   background: none;
+   border: none;
+}
+.dontreserve{
+	display:none
+}

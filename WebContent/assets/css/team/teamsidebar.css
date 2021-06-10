@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+ul.sidebar_actions {
+		background-color: #f6f6f6;
+		list-style: none;	
+	}
+nav.navbar-default #navbarLeft a.navbar-brand {
+    padding: 0 0 0 5%;
+    height: 70px;
+}
+.create_team{
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 5px;
+	height: 70px;
+	background-color: #333333;
+	cursor:  pointer;
+	padding-left: 25px;
+	line-height: 70px;
+}
+.team_list{
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 5px;
+	height: 70px;
+	background-color: #333333;
+	cursor:  pointer;
+	padding-left: 25px;
+	line-height: 70px;
+}
+.joined_team{
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 5px;
+	height: 70px;
+	background-color: #333333;
+	cursor:  pointer;
+	padding-left: 25px;
+	line-height: 70px;
+}
+/* .joined_team{
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 80px;
+	margin-bottom: 5px;
+	height: 70px;
+	background-color: #333333;
+	cursor:  pointer;
+	padding-left: 25px;
+	line-height: 70px;
+} */
+/* .my_team{
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	height: 70px;
+	background-color: #333333;
+	cursor:  pointer;
+	padding-left: 25px;
+	line-height: 70px;
+} */
+

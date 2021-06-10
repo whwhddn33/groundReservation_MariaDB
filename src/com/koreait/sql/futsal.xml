@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Futsal">
+
+	<select id="loadlist" parameterType="hashmap"
+		resultType="GroundInfoBean">
+	SELECT * FROM
+	(SELECT @rownum:= @rownum+1 as rownum, a.* 
+	from TBL_GROUNDINFO a,(SELECT @rownum :=0)TMP
+	ORDER by GROUNDNUM) b
+	WHERE rownum BETWEEN 1 AND 10;
+	</select>
+
+	<select id="getinfo" parameterType="String"
+		resultType="GroundInfoBean">
+		SELECT * FROM TBL_GROUNDINFO WHERE GROUNDNUM = #{groundnum}
+	</select>
+
+	<select id="getHottime" parameterType="String"
+		resultType="HottimeBean">
+		SELECT * FROM TBL_GROUNDHOTTIME WHERE GROUNDNUM =
+		#{groundnum}
+	</select>
+
+	<select id="getstatus" parameterType="usageStatusBean"
+		resultType="usageStatusBean">
+		SELECT * FROM TBL_USAGSTATUS WHERE GROUNDNUM = #{groundnum}
+		AND RESERVATIONDATE = #{reservationdate}
+	</select>
+
+	<select id="returnseq" resultType="_int">
+		SELECT LAST_INSERT_ID()
+	</select>
+	
+	<select id="statusCheck" parameterType="hashmap"
+		resultType="_int">
+		SELECT COUNT(GROUNDTIME) FROM TBL_USAGSTATUS WHERE
+		GROUNDNUM = #{groundnum}
+		AND RESERVATIONDATE = #{date}
+	</select>
+
+	<select id="getPay" parameterType="hashmap" resultType="Integer">
+		SELECT
+		GROUNDHOTTIMEFEE FROM TBL_GROUNDHOTTIME WHERE GROUNDNUM = #{groundnum}
+		AND GROUNDWEEK = ${weekCode} AND GROUNDTIME = #{groundtime}
+	</select>
+
+	<select id="getWDB" parameterType="String" resultType="_int">
+		SELECT
+		WEEKDAYBASICFEE FROM TBL_GROUNDINFO WHERE GROUNDNUM = #{groundnum}
+	</select>
+
+	<select id="getWEB" parameterType="String" resultType="_int">
+		SELECT
+		WEEKENDBASICFEE FROM TBL_GROUNDINFO WHERE GROUNDNUM = #{groundnum}
+	</select>
+	<select id="registloadlist" parameterType="String"
+		resultType="groundinfoBean">
+		SELECT * FROM TBL_GROUNDINFO WHERE EPUSERID = #{epuserid}
+	</select>
+
+	<insert id="groundregist" parameterType="GroundInfoBean">
+
+		INSERT INTO
+		TBL_GROUNDINFO
+		(EPUSERID, GROUNDNAME, GROUNDAREA, USERPOSTCODE, USERADDR, USERADDRDETAIL, USERADDRETC, HASHTAG, WEEKDAYBASICFEE, WEEKENDBASICFEE, IMGNAME, IMGREALNAME)
+		VALUES(#{epuserid},
+		#{groundname}, #{groundarea}, #{userpostcode},
+		#{useraddr},
+		#{useraddrdetail}, #{useraddretc}, #{hashTag},
+		#{weekDayBasicFee},
+		#{weekEndBasicFee},#{imgname},#{imgrealname})
+
+	</insert>
+
+	<insert id="weekDayHotregist" parameterType="hashmap">
+
+		INSERT INTO	TBL_GROUNDHOTTIME
+		(GROUNDNUM, GROUNDWEEK, GROUNDTIME,	GROUNDHOTTIMEFEE)
+		VALUES(#{lastid}, 0,#{weekDaytime}, #{weekDayHotTimeFee})
+
+	</insert>
+
+	<insert id="weekEndHotregist" parameterType="hashmap">
+
+		INSERT INTO	TBL_GROUNDHOTTIME
+		(GROUNDNUM, GROUNDWEEK, GROUNDTIME,GROUNDHOTTIMEFEE)
+		VALUES(#{lastid}, 1,#{weekEndtime}, #{weekEndHotTimeFee})
+
+	</insert>
+
+	<insert id="insertReservation" parameterType="hashmap">
+		INSERT INTO
+		TBL_RESERVATION
+		(USERID, GROUNDTIME, RESERVATIONDATE,
+		RESERVATIONPAY, PAYDATE)
+		VALUES(#{userid},#{reserInfo}, #{select}, #{pay}, NOW())
+	</insert>
+
+	<insert id="insertUsagstatus" parameterType="usageStatusBean">
+		INSERT INTO
+		TBL_USAGSTATUS
+		(GROUNDNUM, GROUNDTIME, RESERVATIONNUM,
+		RESERVATIONDATE)
+		VALUES(${groundnum},#{groundtime}, #{reservationnum}, #{reservationdate})
+	</insert>
+	
+	<delete id="delList" parameterType="String">
+		DELETE FROM TBL_GROUNDINFO
+		WHERE GROUNDNUM = #{listnum}
+	</delete>
+
+	<delete id="delHottime" parameterType="String">
+		DELETE FROM
+		TBL_GROUNDHOTTIME WHERE GROUNDNUM = #{listnum}
+	</delete>
+
+</mapper>

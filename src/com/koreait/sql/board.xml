@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Board">
+
+	<select id="BoardAll" parameterType="hashmap" resultType="boardBean">
+		SELECT * FROM TBL_BOARD
+	</select>
+	
+	<select id="ListAll" parameterType="hashmap" resultType="listBean">
+		SELECT * FROM TBL_LIST
+	</select>
+	
+	<select id="boardList" parameterType="hashmap" resultType="listBean">
+		SELECT * FROM TBL_LIST a 
+		JOIN TBL_MEMBER b 
+		ON a.USERid = b.USERid
+		WHERE a.listnum = ${num}
+	</select>
+	
+	<select id="adminList" parameterType="hashmap" resultType="listBean">
+		SELECT * FROM TBL_LIST WHERE listnum = ${listnum}
+	</select>
+	
+	<select id="BoardListAll" parameterType="hashmap" resultType="listBean">
+		SELECT sub.LISTNUM, sub.USERID,sub.LISTTITLE,sub.LISTDATE,sub.READCNT
+		from (SELECT @rownum:=  @rownum+1 as rownum, a.*
+		FROM TBL_LIST a,(SELECT @rownum :=0)TMP
+		order BY LISTNUM DESC)sub
+		where rownum BETWEEN ${startRow} and ${endRow}
+		order by sub.rownum
+	</select>
+	
+	<select id="BoardCnt" parameterType="_int" resultType="_int">
+		SELECT COUNT(*) FROM TBL_LIST where boardnum = ${category}
+	</select>
+	
+	<insert id="insertBoard" parameterType="BoardBean">
+		INSERT INTO TBL_BOARD(BOARDNAME) VALUES
+		(#{boardname})
+	</insert>
+	
+	<insert id="insertList" parameterType="listbean">
+		INSERT INTO TBL_LIST (listtitle, listcontents, userid,listdate,readcnt,boardnum)
+		VALUES(#{listtitle},#{listcontents},#{userid},NOW(),0,${boardnum})
+	</insert>
+	
+	<select id="returnseq" resultType="_int">
+		SELECT LAST_INSERT_ID()
+	</select>
+	
+	<delete id="deleteBoard" parameterType="_int">
+		DELETE FROM TBL_BOARD WHERE boardnum = ${boardnum}
+	</delete>
+	
+	<delete id="deleteList" parameterType="_int">
+		DELETE FROM TBL_LIST WHERE listnum = ${listnum}
+	</delete>
+	
+	<update id="modifyBoard" parameterType="hashmap">
+		UPDATE TBL_BOARD 
+		SET boardname = #{boardname} 
+		WHERE boardnum = ${boardnum}
+	</update>
+	
+	<update id="modifyList" parameterType="hashmap">
+		UPDATE TBL_LIST 
+		SET listtitle = #{listtitle},
+		listcontents = #{listcontents} 
+		WHERE listnum = ${listnum}
+	</update>
+	
+	<update id="sumReadCnt" parameterType="_int">
+		update TBL_LIST set READCNT = READCNT+1 WHERE LISTNUM = ${num}
+	</update>
+</mapper>

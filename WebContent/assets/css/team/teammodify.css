@@ -1,0 +1,124 @@
+@charset "UTF-8";
+/*팀 수정 전체 영역*/
+.modifywrap{
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+ 	/*background-color: powderblue;   영역 확인용*/ 
+	padding: 30px;
+}
+/*팀 수정 폼*/
+.modifyform{
+	width: 50%;
+	height: 100%;
+	justify-content: center;
+ 	/*background-color: coral;   영역 확인용*/
+	margin: 0 auto; 
+}
+.formwrap{
+	width: 100%;
+	/*height: 100%;*/
+	/*position : absolute; 사용x*/
+	/* left:50%; */
+	/*margin-left: -2%;*/
+}
+/*버튼*/
+.actions_div{
+	width: 50%;
+	height: 100%;
+	/*position : absolute;*/
+	/* left:10%;
+	margin-left: -3%; */
+	padding-top: 40px;
+	margin: 0 auto; 
+	right: 2%;
+}
+label{
+	padding-top: 10px;
+	width: 100%;
+}
+
+/*input 설정*/
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"], 
+input[type="search"], input[type="url"], select, textarea{
+    border: none;
+    border: solid 1px;
+    background-color: transparent;
+    border-color: #e6e6e6;
+    color: inherit;
+    display: block;
+    outline: 0;
+    padding: 0 1em;
+    text-decoration: none;
+    width: 100%;
+}
+/*파일첨부*/
+.filebox input[type="file"] { 
+ 	position: absolute; 
+	width: 1px; 
+	height: 1px; 
+	padding: 0; 
+	margin: -1px; 
+	overflow: hidden; 
+	clip:rect(0,0,0,0); 
+	border: 0; 
+} 
+/*파일첨부 버튼*/
+.filebox div { 
+	width: 100px;
+	height: 40px;
+	display: inline-block; 
+	padding: .5em .75em; 
+	/* color: #999;  */
+	background-color: transparent;
+	color: #444 !important;
+	box-shadow: inset 0 0 0 1px #444;
+	font-size: inherit; 
+/* 	line-height: normal; 
+/*	vertical-align: middle;  */
+/*	background-color: #fdfdfd;  */
+	cursor: pointer; 
+/* 	font-size: 0.8em; */
+/* 	border: 1px solid #ebebeb;  */
+/* 	border-bottom-color: #e2e2e2;  */
+} 
+/* 첨부파일 이름이 보이는 부분 */ 
+.filebox .upload-name { 
+	display: inline-block; 
+	padding: .5em .75em; /* label의 패딩값과 일치 */ 
+	font-size: inherit; 
+	font-family: inherit; 
+	line-height: normal; 
+	vertical-align: middle; 
+/* 	background-color: #f5f5f5;  */
+	border: 1px solid #ebebeb; 
+/* 	border-bottom-color: #e2e2e2; */ 
+/* 	border-radius: .25em;  */
+	-webkit-appearance: none; /* 네이티브 외형 감추기 */
+	-moz-appearance: none; 
+	appearance: none; 
+}
+/*사이드바*/	
+.joined_team{
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 80px;
+	margin-bottom: 5px;
+	height: 70px;
+	background-color: #333333;
+	cursor:  pointer;
+	padding-left: 25px;
+	line-height: 70px;
+}
+.create_team{
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	height: 70px;
+	background-color: #333333;
+	cursor:  pointer;
+	padding-left: 25px;
+	line-height: 70px;
+}
+
