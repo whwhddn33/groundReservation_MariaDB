@@ -19,7 +19,7 @@
 			</h1>
 			<nav id="nav">
 				<ul>
-					<li><a href="${pageContext.request.contextPath}">Home</a></li>
+					<li><a href="${pageContext.request.contextPath}/">Home</a></li>
 					<li><a href="#" class="submenu fa-angle-down">구장관리</a>
 						<ul>
 							<li><a
@@ -46,7 +46,7 @@
 	
 			<nav id="nav">
 				<ul>
-					<li><a href="${pageContext.request.contextPath}">Home</a></li>
+					<li><a href="${pageContext.request.contextPath}/">Home</a></li>
 					<li><a href="#" class="submenu fa-angle-down">Ground</a>
 						<ul>
 							<li><a href="${pageContext.request.contextPath}/futsalFrontController/futsallist.fu">구장현황</a></li>

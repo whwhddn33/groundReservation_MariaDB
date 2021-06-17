@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic:wght@800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Staatliches&display=swap');
+html, body, div, span, applet, object,
+iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, a, abbr, acronym, address, big, cite,
+code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b,
+u, i, center, dl, dt, dd, ol, ul, li, fieldset,
+form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, ruby,
+section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+	blockquote:before, blockquote:after, q:before, q:after {
+		content: '';
+		content: none;
+	}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+	-webkit-text-size-adjust: none;
+    font-family: 'Noto Sans KR', sans-serif;
+    background-image: url(../../images/ilya-pavlov-OqtafYT5kTw-unsplash.jpg);
+    background-attachment: fixed;
+}
+
+mark {
+	background-color: transparent;
+	color: inherit;
+}
+
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+input, select, textarea {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+}
+/* header */
+#header{
+    position: fixed;
+    background-color: transparent;
+    z-index: 2000;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 30px;
+    right: 0;
+    height: 3vh;
+}
+
+ul li {
+    float:left;
+}
+
+#navi{
+	float:left;
+	opacity: .7;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	background-color: black;
+	color : white;
+	min-width: 533px;
+}
+#navi>ul>li{
+	padding:10px 30px;
+}
+
+/* contents */
+#contents>div{
+    height: 1300px;
+}
+#contents>div:nth-child(1){
+    background-color: transparent;
+}
+#contents>div:not(:first-of-type){
+    background-color: rgb(255, 255, 255);
+}
+#top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3em;
+    height: 250px !important;
+    
+}
+#about{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 400px !important;
+}
+    .about_title{
+        flex: 1;
+        font-size: 4em;
+        font-weight: 700;
+    }
+    .about_content{
+        flex: 1;
+        font-size: 2em;
+        text-align: left;
+    }
+    .about_section>div{
+        margin-bottom: 1em;
+        opacity: 0;
+    }
+#skills{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 950px !important;
+    background-color: rgb(50, 252, 185) !important;
+}
+    .skill_title{
+    font-family: Noto Sans KR,sans-serif;
+    position: relative;
+    display: inline-block;
+    font-size: 4em;
+    font-weight: 700;
+    margin: 30px 0;
+    }
+    .skill_contents{
+        display: block;
+        text-align: center;
+        font-size: 2em;
+        font-weight: 600;
+    }
+    .imgwrapper{
+        width : 100%;
+        margin: 0 auto;
+        padding-right: 10px;
+        height: 170px;
+    }
+    .imgthumbnail{
+        vertical-align: middle;
+        width: 70px;
+        padding: 0 1vw 0 1vw;
+        border-radius: 20px;
+    }
+#project{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(50, 228, 252) !important;
+    height: 2100px !important;
+}
+    .pjh1{
+        font-family: Noto Sans KR,sans-serif;
+        position: relative;
+        display: inline-block;
+        font-size: 4em;
+        font-weight: 700;
+        margin: 30px 0;
+    }
+
+    .pj1frame{
+        width: 1000px;
+        height: 565px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    iframe{
+        width: 100%;
+        height: 100%;
+        border-radius: 18px;
+        box-shadow: 15px 15px 15px;
+    }
+    .pjinfo{
+        margin: 0 auto;
+        margin-top: 2em;
+        border-top: 1px dashed;
+        width: 1000px;
+    }
+    .infoh2{
+        margin-top: 1em;
+        text-align: left;
+        font-size: 2.5em;
+        font-weight: 700;
+    }
+    .infop{
+        margin-top: 1em;
+        text-align: left;
+    }
+    .infop > h3{
+        margin-top: 1em;
+        font-size: 2em;
+        font-weight: 700;
+    }
+    .infop > p{
+        margin-left: 2em;
+        margin-top: .5em;
+    }
+    .infotable{
+        margin-top: 2em;
+        width: 100%;
+        background-color: rgb(202, 240, 255);
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    .tableimg{
+        width: 100%;
+    }
+    .project>section{
+        margin-top: 10px;
+    }
+#moreinfo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.9)!important;
+        height: 700px !important;
+        flex-direction: column;
+    }
+.Moreinfoh1{
+    font-family: Noto Sans KR,sans-serif;
+    position: relative;
+    font-size: 4em;
+    font-weight: 700;
+    margin: 30px 0;
+}
+.infowrapper{
+    flex: 2;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    border: 1px solid;
+}
+.photo>img{
+    margin-bottom: 1vh;
+    border-radius: 20px;
+    width: 250px;
+}
+#moreinfo>p{
+    font-size: 1.5em;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+a:link, a:visited{
+    color: black;
+}
+
+@media screen and (max-width:1000px){
+    .pjinfo{
+        margin: 0 auto;
+        margin-top: 2em;
+        border-top: 1px dashed;
+        width: 80vw;
+    }
+    .pj1frame{
+        width: 80vw;
+        height: 565px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    #about{
+        flex-direction: column;
+    }
+        .about_title{
+            margin-bottom: .2em;
+        }
+        .about_content{
+            flex: 1;
+            font-size: 1.8em;
+            text-align: center;
+        }
+    #navi{
+        float:left;
+        opacity: .7;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        background-color: black;
+        color : white;
+	min-width : 0;
+    }
+    #navi>ul>li{
+        padding:1vh 2vw;
+    }}
