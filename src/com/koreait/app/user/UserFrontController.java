@@ -86,8 +86,17 @@ public class UserFrontController extends HttpServlet {
 				break;
 			case "/app/user/loginView.me": // �α��� ������ �̵�
 				forward = new ActionForward();
-				forward.setPath(request.getContextPath()+"/app/user/loginView.jsp");
-				forward.setRedirect(true);
+				System.out.println(request.getAttribute("check"));
+				if(request.getAttribute("check")== null) {
+					System.out.println("ifrun");
+					forward.setPath(request.getContextPath()+"/app/user/loginView.jsp");
+					forward.setRedirect(true);
+				}else{
+					System.out.println("elserun");
+					request.setAttribute("check", "notOK");
+					forward.setPath("/app/user/loginView.jsp");
+					forward.setRedirect(false);
+				};
 				break;
 			case "/app/user/enterpriseLoginView.me": // �α��� ������ �̵�
 				forward = new ActionForward();

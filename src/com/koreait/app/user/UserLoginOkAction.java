@@ -26,11 +26,13 @@ public class UserLoginOkAction implements Action{
 		if (loginUser != null) {
 			session.setAttribute("login_session", loginUser);
 			forward.setPath(request.getContextPath()+"/");
+			forward.setRedirect(true);
 		}else {
-			forward.setPath(request.getContextPath()+"/app/user/loginView.me"); 
-			System.out.println("�α��� ����!");
+			request.setAttribute("check", "notOK");
+			forward.setPath("/app/user/loginView.me"); 
+			System.out.println("로그인실패");
+			forward.setRedirect(false);
 		}
-		forward.setRedirect(true);
 		return forward;
 	}
 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +11,7 @@
 	<title>Insert title here</title>
 </head>
 <body class='doc_container'>
+	
     <div class='login_logo'>
       <i class="far fa-user-circle fa-3x"></i>
     </div>
@@ -31,29 +33,25 @@
           <input type='password' class='input_text' placeholder="Password" autocomplete="off" name="userpw">
         </span>
       </div>
-      <div class="wrap_remember">
-        <span class="wrap_checkbox">
-          <input type="checkbox" id="remember_id">
-          <label for="remember_id">
-            <i class="far fa-check-square fa-1x"></i>
-            <strong>Remember me</strong>
-          </label>
-        </span>
-        <span class="wrap_forget_pw">
-          <a href="#" class="forget_pw">Forget password?</a>
-        </span>
-      </div>
 
       <button id="login_btn" type='button' class='signin_btn' onclick="tryLogin();">Login</button>
       
-      <div class="naver_login" id="naverIdLogin"></div>
     </form>
-
-    <div>
-      <p class='accunt_desc'>Not a member?</p>
-      <a href="${pageContext.request.contextPath}/app/user/joinView.me" class="link_account">Create account</a>
-    </div>
   </body>
-  <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
-  <script src="${pageContext.request.contextPath}/assets/js/user/loginView.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/user/loginView.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+var check = "${requestScope.check}";
+$(document).ready(function(){
+	console.log(check);
+	if (check == 'notOK') {
+		Swal.fire({
+        icon: 'warning',
+        title: '로그인 실패..!',
+        text: '아이디와 비밀번호를 확인해주세요.',
+    });
+	}
+});
+</script>
 </html>

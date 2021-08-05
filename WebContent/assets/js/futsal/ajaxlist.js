@@ -58,7 +58,8 @@ $(document).ready(function(){
 			url : contextPath+"/futsallistLoad.fu",
 			type : "get",
 			data: {"selectDate":selectDate , "tryCount" : tryCount},
-			dataType:"json"
+			dataType:"json",
+			beforeSend : showLoading()
 		})
 		.done(function(data){
 			console.log(tryCount);
@@ -146,4 +147,8 @@ $(document).ready(function(){
 		        map.setCenter(coords);
 		    } 
 		});
+	}
+	function showLoading(){
+		var tag = '<div id = loading style="position:absolute; top : 50%; left:50%; width : 200px; height : 200px; background-color : white; z-index : 2000; opacity : .8; line-height : 100px;">Loading...!</div>';
+		$('#futsalcontent').html(tag);
 	}
