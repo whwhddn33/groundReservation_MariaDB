@@ -20,10 +20,10 @@ public class FutsallistLoadAction implements Action{
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		FutsalDAO fdao = new FutsalDAO();
-		
+		System.out.println("public class FutsallistLoadAction implements Action{");
 		String String_tryCount = request.getParameter("tryCount");
 		String selectDate = request.getParameter("selectDate");
-		System.out.println(selectDate);
+		System.out.println("selectDate : "+selectDate);
 		int tryCount = Integer.parseInt(String_tryCount);
 		System.out.println(tryCount);
 		

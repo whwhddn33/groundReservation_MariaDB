@@ -11,7 +11,6 @@ $(document).ready(function(){
 	mapMaker(addr)
 	$(".custom_calendar_table").on("click", "td", function () {
 		tryCount = 1;
-		console.log();
 		tags = '';
 		lastsign = 0;
 		if (lastsign ===0)callAjax();
@@ -27,13 +26,18 @@ $(document).ready(function(){
 		if(scrollBottom <=30 && cycleController ==0){
 			cycleController++;
 			console.log("0입니다 : "+scrollBottom);
+			console.log("cycleCntroller"+cycleController);
 			if (lastsign ===0)callAjax();
 			console.log("스크롤시 : "+tryCount);
-		}else if(scrollBottom >=30) cycleController = 0;
+		}else if(scrollBottom >=30) {
+			cycleController = 0;
+			console.log("cycleCntroller"+cycleController);
+		}
 	})
 	$(window).scroll(function(){
 		console.log("$(window).scrollTop() : " +$(window).scrollTop());
 		if ($(window).scrollTop()>600) {
+			console.log("cycleCntroller"+cycleController);
 			console.log("600이상")
 			$("#mapwrapper").addClass('slide_down');
 		}else{
@@ -41,6 +45,8 @@ $(document).ready(function(){
 		}
 	})
 });
+
+
 	function callAjax(){
 		//연월
 		var year = new Date().getFullYear(),
@@ -74,7 +80,7 @@ $(document).ready(function(){
 				lastsign ++;
 				$(".contents").html(tags);
 			}else{
-				tags = '';
+//				tags = '';
 				console.log("tags 초기화");
 				tagsStack(data);
 			}
@@ -88,6 +94,8 @@ $(document).ready(function(){
 			console.log("code:"+xhr.status+"\n"+"message:"+xhr.responseText+"\n"+"error:"+error);
 		})
 	}
+	
+	
 	function tagsStack(data) {
 		console.log(data.json.length)
 		for(i = 0; i <data.json.length; i++){
@@ -98,7 +106,7 @@ $(document).ready(function(){
 			}
 			tags += '<div class = futsallist id = '+((tryCount*6-5)+i)+'>';
 			if(data.json[i].imgrealname != null){
-				tags += "<div id = imgdiv style = 'background-image: url(../app/futsal/img/"+data.json[i].imgrealname+");background-size:cover;'></div>";
+				tags += "<div id = imgdiv style = 'background-image: url(../../app/futsal/img/"+data.json[i].imgrealname+");background-size:cover;'></div>";
 			}else{
 				tags += "<div><img alt='등록된이미지가 없습니다' src=''></div>";
 			}
@@ -123,6 +131,8 @@ $(document).ready(function(){
 		$(".contents").html(tags);
 		console.log("tagstack : "+ tryCount);
 	}
+	
+	
 	function mapMaker(addr){
 		$('#makeMap').html('<div id="map" style="width:100%;"></div>');
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -148,7 +158,11 @@ $(document).ready(function(){
 		    } 
 		});
 	}
+	
+	
 	function showLoading(){
 		var tag = '<div id = loading style="position:absolute; top : 50%; left:50%; width : 200px; height : 200px; background-color : white; z-index : 2000; opacity : .8; line-height : 100px;">Loading...!</div>';
 		$('#futsalcontent').html(tag);
 	}
+	
+	
